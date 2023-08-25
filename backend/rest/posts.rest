@@ -1,0 +1,54 @@
+### get post with pagination
+GET http://localhost:3000/posts?count=10&page=1 HTTP/1.1
+
+### get posts with pagination also includes user
+GET http://localhost:3000/posts?count=10&page=1&user=true HTTP/1.1
+
+### get all post (default is 10)
+GET http://localhost:3000/posts HTTP/1.1
+
+### get all post (default is 10) with users
+GET http://localhost:3000/posts?user=true HTTP/1.1
+
+###
+POST http://localhost:3000/posts HTTP/1.1
+Content-Type: application/json
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im91bmciLCJlbWFpbCI6Im91bmdAZ21haWwuY29tIiwiaWQiOjksImlhdCI6MTY5MjYxMDQxMywiZXhwIjoxNjkyNjk2ODEzfQ.zRadm755BodYI4Mm9m3elnepN21JPb7MKgIXaZ_y15E
+
+{
+      "title": "Dave watched as the forest burned up on the hill.",
+      "content": "Dave watched as the forest burned up on the hill, only a few miles from her house. The car had been hastily packed and Marta was inside trying to round up the last of the pets. Dave went through his mental list of the most important papers and documents that they couldn't leave behind. He scolded himself for not having prepared these better in advance and hoped that he had remembered everything that was needed. He continued to wait for Marta to appear with the pets, but she still was nowhere to be seen."
+}
+
+### Post a post as non user (Error: not signed in yet)
+POST http://localhost:3000/posts HTTP/1.1
+Content-Type: application/json
+
+{
+      "title": "Dave watched as the forest burned up on the hill.",
+      "content": "Dave watched as the forest burned up on the hill, only a few miles from her house. The car had been hastily packed and Marta was inside trying to round up the last of the pets. Dave went through his mental list of the most important papers and documents that they couldn't leave behind. He scolded himself for not having prepared these better in advance and hoped that he had remembered everything that was needed. He continued to wait for Marta to appear with the pets, but she still was nowhere to be seen."
+}
+
+### get individual post by id
+GET http://localhost:3000/posts/1 HTTP/1.1
+
+### put individual post by id
+PUT  http://localhost:3000/posts/1 HTTP/1.1
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im91bmciLCJlbWFpbCI6Im91bmdAZ21haWwuY29tIiwiaWQiOjksImlhdCI6MTY5MjYxMDQxMywiZXhwIjoxNjkyNjk2ODEzfQ.zRadm755BodYI4Mm9m3elnepN21JPb7MKgIXaZ_y15E
+Content-Type: application/json
+
+{
+    "title": "His mother had always taught him!",
+    "content": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind. haha!"
+}
+
+### delete without login
+DELETE http://localhost:3000/posts/4 HTTP/1.1
+
+### delete post
+DELETE http://localhost:3000/posts/4 HTTP/1.1
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im91bmciLCJlbWFpbCI6Im91bmdAZ21haWwuY29tIiwiaWQiOjksImlhdCI6MTY5MjYxMDQxMywiZXhwIjoxNjkyNjk2ODEzfQ.zRadm755BodYI4Mm9m3elnepN21JPb7MKgIXaZ_y15E
+
+### delete other user's post (forbidden)
+DELETE http://localhost:3000/posts/3 HTTP/1.1
+Authorization: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlaWsiLCJlbWFpbCI6InNlaWtAZ21haWwuY29tIiwiaWQiOjEwLCJpYXQiOjE2OTI2MTQ1NTEsImV4cCI6MTY5MjcwMDk1MX0.5mxcZEzeHHAhK4RUv5MqjItgWgY7AAICjcWekLmiorw

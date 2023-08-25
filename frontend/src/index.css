@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-peer:checked ~ .menu .slider {
+    @apply translate-x-0;
+  }
+
+  dialog::backdrop {
+    @apply bg-slate-800/50;
+  }
+}

@@ -1,0 +1,38 @@
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "atuny0@sohu.com",
+    "password": "abcABC123"
+}
+
+###
+GET http://localhost:3000/login/refresh HTTP/1.1
+Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF0dW55MCIsImVtYWlsIjoiYXR1bnkwQHNvaHUuY29tIiwiaWQiOjIsImlhdCI6MTY5MjY2OTY1MywiZXhwIjoxNjkyNzU2MDUzfQ.h8plswRm1UMM_dAfTMJzug_HoHcPlyJylX4TWhDgeEk; Max-Age=86; Path=/; Expires=Tue, 22 Aug 2023 02:02:19 GMT
+
+### Error: wrong email, (user does not exist with worng email)
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "oung1@gmail.com",
+    "password": "abcAbc123!@#"
+}
+
+### Error: login with wrong password
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "oung@gmail.com",
+    "password": "abcAbc123!"
+}
+
+###
+POST http://localhost:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "seik@gmail.com",
+    "password": "abcAbc123!@#"
+}

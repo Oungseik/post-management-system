@@ -1,0 +1,75 @@
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "oung",
+    "email": "oung@gmail.com",
+    "password": "abcAbc123!@#",
+    "passwordConfirm": "abcAbc123!@#"
+}
+
+###
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "seik",
+    "email": "seik@gmail.com",
+    "password": "abcAbc123!@#",
+    "passwordConfirm": "abcAbc123!@#"
+}
+
+### ERROR: short user name
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "ou",
+    "email": "oung@gmail.com",
+    "password": "abcAbc123!@#",
+    "passwordConfirm": "abcAbc123!@#"
+}
+
+### ERROR: Invalid email
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "oung",
+    "email": "oung@gmailcom",
+    "password": "abcAbc123!@#",
+    "passwordConfirm": "abcAbc123!@#"
+}
+
+### ERROR: password too short
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "oung",
+    "email": "oung@gmail.com",
+    "password": "abc",
+    "passwordConfirm": "abc"
+}
+
+### ERROR: password does not meet the critia
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "oung",
+    "email": "oung@gmail.com",
+    "password": "abcAbcabc",
+    "passwordConfirm": "abcAbcabc"
+}
+
+### ERROR: password and passwordConfirm does not match
+POST http://localhost:3000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "oung",
+    "email": "oung@gmail.com",
+    "password": "abcAbc123",
+    "passwordConfirm": "abcAbc1234"
+}
