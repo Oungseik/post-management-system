@@ -1,3 +1,5 @@
+# Full-stack Developer Code Test by Pandora Technology.
+
 Backend is created with NodeJS, TypeScript.
 For database, I used `prisma` and `SqLite3`.
 If your machine is installed `SqLite3`, running the backend will be fine.
