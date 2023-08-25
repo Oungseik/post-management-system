@@ -19,7 +19,7 @@ Front-end is scaffolded with `vite` and `typescript`.
 To run the project, I used `pnpm`, but `npm` or `yarn` may also work well.
 
 
-To start backend, run `pnpm run start` on the backend directory.
+To start backend, change the directory to backend and generate prisma client with `npx prisma generate` and run `pnpm run start`.
 To start the frontend, run `pnpm run build && pnpm run preview` on the frontend directory.
 
 ---
